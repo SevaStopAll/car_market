@@ -14,36 +14,34 @@ public class UserRepository {
 
     /**
      * Сохранить в базе.
+     *
      * @param user пользователь.
      * @return пользователь с id.
      */
     public User create(User user) {
         Session session = sf.openSession();
-            try {
-                session.beginTransaction();
-                session.save(user);
-                session.getTransaction().commit();
-            } catch (Exception e) {
-                session.getTransaction().rollback();
-            } finally {
-                session.close();
-            }
+        try {
+            session.beginTransaction();
+            session.save(user);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        } finally {
+            session.close();
+        }
         return user;
     }
 
     /**
      * Обновить в базе пользователя.
+     *
      * @param user пользователь.
      */
     public void update(User user) {
         Session session = sf.openSession();
         try {
             session.beginTransaction();
-            session.createQuery(
-                            "UPDATE User SET login = :fLogin WHERE id = :fId")
-                    .setParameter("fLogin", user.getLogin())
-                    .setParameter("fId", user.getId())
-                    .executeUpdate();
+            session.createQuery("UPDATE User SET login = :fLogin WHERE id = :fId").setParameter("fLogin", user.getLogin()).setParameter("fId", user.getId()).executeUpdate();
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
@@ -54,16 +52,14 @@ public class UserRepository {
 
     /**
      * Удалить пользователя по id.
+     *
      * @param userId ID
      */
     public void delete(int userId) {
         Session session = sf.openSession();
         try {
             session.beginTransaction();
-            session.createQuery(
-                            "DELETE User WHERE id = :fId")
-                    .setParameter("fId", userId)
-                    .executeUpdate();
+            session.createQuery("DELETE User WHERE id = :fId").setParameter("fId", userId).executeUpdate();
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
@@ -74,6 +70,7 @@ public class UserRepository {
 
     /**
      * Список пользователь отсортированных по id.
+     *
      * @return список пользователей.
      */
     public List<User> findAllOrderById() {
@@ -94,15 +91,16 @@ public class UserRepository {
 
     /**
      * Найти пользователя по ID
+     *
      * @return пользователь.
      */
     public Optional<User> findById(int id) {
         User result = null;
         Session session = sf.openSession();
         try {
-        session.beginTransaction();
-        result = session.get(User.class, id);
-        session.getTransaction().commit();
+            session.beginTransaction();
+            result = session.get(User.class, id);
+            session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
 
@@ -114,6 +112,7 @@ public class UserRepository {
 
     /**
      * Список пользователей по login LIKE %key%
+     *
      * @param key key
      * @return список пользователей.
      */
@@ -122,8 +121,7 @@ public class UserRepository {
         List<User> result = new ArrayList<>();
         try {
             session.beginTransaction();
-            Query query = session.createQuery(
-                    "from User as u where u.login = :fLogin", User.class);
+            Query query = session.createQuery("from User as u where u.login = :fLogin", User.class);
             query.setParameter("fLogin", key);
             result = query.list();
             session.getTransaction().commit();
@@ -137,6 +135,7 @@ public class UserRepository {
 
     /**
      * Найти пользователя по login.
+     *
      * @param login login.
      * @return Optional or user.
      */
@@ -144,12 +143,11 @@ public class UserRepository {
         Session session = sf.openSession();
         Optional<User> result = Optional.empty();
         try {
-        session.beginTransaction();
-        Query<User> query = session.createQuery(
-                "from User as u where u.login = :fLogin", User.class);
-        query.setParameter("fLogin", login);
-        result = query.uniqueResultOptional();
-        session.getTransaction().commit();
+            session.beginTransaction();
+            Query<User> query = session.createQuery("from User as u where u.login = :fLogin", User.class);
+            query.setParameter("fLogin", login);
+            result = query.uniqueResultOptional();
+            session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
         } finally {
