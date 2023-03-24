@@ -39,4 +39,8 @@ public class Post {
     @OneToOne
     @JoinTable(name = "car_id")
     private Car car;
+
+    @OneToMany
+    @JoinTable(name="post_id")
+    private List<File> files;
 }
