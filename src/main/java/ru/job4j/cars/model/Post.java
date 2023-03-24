@@ -41,6 +41,6 @@ public class Post {
     private Car car;
 
     @OneToMany
-    @JoinTable(name="post_id")
-    private List<File> files;
+    @JoinTable(name = "post_id")
+    private List<File> files =  new ArrayList<>();
 }

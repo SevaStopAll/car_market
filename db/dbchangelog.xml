@@ -11,5 +11,5 @@
        <include file="scripts/005_ddl_create_owners_and_engines_and_cars_tables.sql" relativeToChangelogFile="true"/>
        <include file="scripts/006_ddl_create_history_owner_table.sql" relativeToChangelogFile="true"/>
        <include file="scripts/007_dml_alter_table_auto_post.sql" relativeToChangelogFile="true"/>
-       <include file="scripts/008_ddl_create_files_tables.sql" relativeToChangelogFile="true"/>
+       <include file="scripts/008_ddl_create_files_table.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>

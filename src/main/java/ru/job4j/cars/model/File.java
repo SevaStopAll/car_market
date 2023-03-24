@@ -16,5 +16,5 @@ public class File {
     private int id;
     private String name;
     private String path;
-    private String post_id;
+    private Post post;
 }
