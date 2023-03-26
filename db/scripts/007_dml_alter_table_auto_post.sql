@@ -1,1 +1,0 @@
-alter table auto_post add column car_id int REFERENCES cars(id);

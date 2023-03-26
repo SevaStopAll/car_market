@@ -11,6 +11,7 @@ import ru.job4j.cars.model.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 public class HbmRun {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class HbmRun {
                     new PriceHistory(0, 150_000L, 120_000L, LocalDateTime.now())
             ));
             post.setUser(user);
-            post.setParticipates(List.of(user));
+            post.setParticipates(Set.of(user));
             create(post, sf);
             var stored = sf.openSession()
                     .createQuery("from Post where id = :fId", Post.class)

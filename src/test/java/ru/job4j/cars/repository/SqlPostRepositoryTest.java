@@ -4,15 +4,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PostRepositoryTest {
-    private final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
+class SqlPostRepositoryTest {
+    private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
-    private final SessionFactory sf = new MetadataSources(registry)
+    private final SessionFactory sf = new MetadataSources(REGISTRY)
             .buildMetadata().buildSessionFactory();
 
-    PostRepository post = new PostRepository(new CrudRepository(sf));
+    private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
+    private final PostRepository postRepository = new SqlPostRepository(crudRepository);
+
 }

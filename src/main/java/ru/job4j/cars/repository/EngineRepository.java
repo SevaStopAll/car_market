@@ -1,25 +1,20 @@
 package ru.job4j.cars.repository;
 
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.Engine;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
-@Repository
-@AllArgsConstructor
-public class EngineRepository {
-    CrudRepository crudRepository;
+public interface EngineRepository {
 
-    public List<Engine> findAll() {
-        return crudRepository.query("from Engine", Engine.class);
-    }
+    Engine save(Engine engine);
 
-    public Engine findById(int id) {
-        return crudRepository.optional(
-                "from Engine where id = :fId", Engine.class,
-                Map.of("fId", id)
-        ).get();
-    }
+    boolean delete(int engineId);
+
+    boolean update(Integer id, Engine engine);
+
+    List<Engine> findAll();
+
+    Optional<Engine> findById(int engineId);
+
 }

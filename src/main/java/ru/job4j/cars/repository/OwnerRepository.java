@@ -1,25 +1,20 @@
 package ru.job4j.cars.repository;
 
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.Owner;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
-@Repository
-@AllArgsConstructor
-public class OwnerRepository {
-    CrudRepository crudRepository;
+public interface OwnerRepository {
 
-    public List<Owner> findAll() {
-        return crudRepository.query("from Owner", Owner.class);
-    }
+    Owner save(Owner owner);
 
-    public Owner findById(int id) {
-        return crudRepository.optional(
-                "from Owner where id = :fId", Owner.class,
-                Map.of("fId", id)
-        ).get();
-    }
+    boolean update(Integer id, Owner owner);
+
+    boolean delete(int ownerId);
+
+    List<Owner> findAll();
+
+    Optional<Owner> findById(int ownerId);
+
 }
