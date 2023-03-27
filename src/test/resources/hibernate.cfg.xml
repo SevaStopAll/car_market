@@ -14,11 +14,16 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
         <mapping class="ru.job4j.cars.model.User" />
-        <mapping class="ru.job4j.cars.model.Post" />
-        <mapping class="ru.job4j.cars.model.File" />
-        <mapping class="ru.job4j.cars.model.PriceHistory" />
         <mapping class="ru.job4j.cars.model.Engine" />
-        <mapping class="ru.job4j.cars.model.Car" />
+        <mapping class="ru.job4j.cars.model.Body" />
+        <mapping class="ru.job4j.cars.model.Transmission" />
         <mapping class="ru.job4j.cars.model.Owner" />
+        <mapping class="ru.job4j.cars.model.Car" />
+        <mapping class="ru.job4j.cars.model.File" />
+        <mapping class="ru.job4j.cars.model.Post" />
+        <mapping class="ru.job4j.cars.model.PriceHistory" />
+
+
+
     </session-factory>
 </hibernate-configuration>

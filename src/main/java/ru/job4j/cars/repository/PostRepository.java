@@ -17,4 +17,10 @@ public interface PostRepository {
     Optional<Post> findById(int postId);
 
     void delete(int userId);
+
+    List<Post> findDone(boolean sold);
+
+    void setSold(int userId);
+
+    void setUnsold(int userId);
 }

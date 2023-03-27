@@ -18,6 +18,10 @@ public class SqlPostRepository implements PostRepository {
     private static final String FIND_ALL = "FROM Post p JOIN FETCH p.car JOIN FETCH p.car.engine";
     private static final String FIND_BY_ID = "FROM Post p JOIN FETCH p.car WHERE p.id = :fId";
     private static final String DELETE = "DELETE FROM Post p JOIN FETCH p.car WHERE p.id = :fId";
+    private static final String FIND_BY_SOLD = "FROM Post p JOIN FETCH p.car where p.sold = :fSold";
+    private static final String SET_SOLD = "FROM Post p JOIN FETCH p.car SET p.sold = :fSold WHERE p.id = :fId";
+    private static final String SET_UNSOLD = "UPDATE Post p JOIN FETCH p.car SET p.sold = :fSold WHERE p.id = :fId";
+
 
     private final CrudRepository crudRepository;
 
@@ -103,4 +107,41 @@ public class SqlPostRepository implements PostRepository {
         crudRepository.run(
                 DELETE, Map.of("fId", userId));
     }
+
+    /**
+     * Найти объявления активные/не активные
+     * @param sold нужный пользователю статус true - машина продана \ false - машина еще продается.
+     *
+     * @return объявление.
+     */
+    @Override
+    public List<Post> findDone(boolean sold) {
+        return crudRepository.query(
+                FIND_BY_SOLD, Post.class,
+                Map.of("fSold", sold)
+        );
+    }
+
+    /**
+     * Поменять статус объявления на "Продано"
+     * @param postId номер поста.
+     *
+     */
+    @Override
+    public void setSold(int postId) {
+        crudRepository.run(
+                SET_SOLD, Map.of("fId", postId));
+    }
+
+    /**
+     * Поменять статус объявление на "Активно"
+     * @param postId номер поста.
+     *
+     */
+    @Override
+    public void setUnsold(int postId) {
+        crudRepository.run(
+                DELETE, Map.of("fId", postId));
+    }
+
 }
