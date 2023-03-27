@@ -1,6 +1,8 @@
 package ru.job4j.cars.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import ru.job4j.cars.dto.FileDto;
 import ru.job4j.cars.model.File;
 import ru.job4j.cars.repository.SqlFileRepository;
@@ -11,6 +13,7 @@ import java.nio.file.Path;
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class SimpleFileService implements FileService{
     private final SqlFileRepository fileRepository;
 
