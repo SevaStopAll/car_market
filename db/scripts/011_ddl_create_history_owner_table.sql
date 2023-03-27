@@ -1,4 +1,3 @@
-
 CREATE TABLE IF NOT EXISTS history_owner
 (
     id        serial PRIMARY KEY,

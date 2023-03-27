@@ -8,11 +8,3 @@ comment on table owner is 'Таблица с водителями';
 comment on column owner.id is 'Идентификатор';
 comment on column owner.name is 'Имя';
 
-INSERT INTO engine (name) VALUES ('Бензиновый'), ('Дизельный'), ('Газовый');
-
-    CREATE TABLE file
-(
-    id   SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    path TEXT NOT NULL UNIQUE
-);
