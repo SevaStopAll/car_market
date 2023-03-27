@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS auto_post
 (
     id           SERIAL PRIMARY KEY,
     description        TEXT      NOT NULL,
-    created      TIMESTAMP NOT NULL,
+    created      timestamp without time zone default (now() at time zone 'utc'),
     auto_user_id INT       NOT NULL REFERENCES auto_user (id),
     car_id int REFERENCES car (id),
     file_id int REFERENCES file (id)

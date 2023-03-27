@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS car
 (
     id        SERIAL PRIMARY KEY,
     name      TEXT      NOT NULL,
-    created   TIMESTAMP NOT NULL,
+    created      timestamp without time zone default (now() at time zone 'utc'),
     engine_id INT       NOT NULL REFERENCES engine (id),
     body_id INT NOT NULL REFERENCES body(id),
     transmission_id INT NOT NULL REFERENCES transmission(id)

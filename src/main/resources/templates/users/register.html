@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+    <title>Auto World</title>
+</head>
+<body>
+<div class="container pt-3">
+    <div class="row justify-content-center">
+        <div class="card text-center mt-2" style="width: 55%">
+            <div class="card" style="width: 100%">
+                <div class="card-header">
+                    User registration
+                </div>
+                <div class="card-body shadow">
+                    <form th:action="@{/users/register}" method="POST">
+                        <label>Login</label>
+                        <div class="form-group row justify-content-center">
+                            <input type="text" class="form-control bg-light col-md-6" placeholder="type a login"
+                                   name="login" id="login" required>
+                        </div>
+                        <label>Password</label>
+                        <div class="form-group row justify-content-center">
+                            <input type="password" class="form-control bg-light col-md-6"
+                                   placeholder="*******"
+                                   name="password" id="password" required>
+                        </div>
+                        <div class="form-group row justify-content-center">If you already have an account :
+                            <a th:href="@{/user/loginPage}" class="link" role="button"
+                               aria-pressed="true">Log in</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
