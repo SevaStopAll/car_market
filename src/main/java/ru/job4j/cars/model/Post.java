@@ -32,8 +32,8 @@ public class Post {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "auto_post_id")
-    private List<PriceHistory> priceHistoryList = new ArrayList<>();
+    @JoinColumn(name = "post_id")
+    private List<PriceHistory> priceHistory = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -42,10 +42,6 @@ public class Post {
             inverseJoinColumns = {@JoinColumn(name = "auto_user_id")}
     )
     private Set<User> participates = new HashSet<>();
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "post_id")
-    private List<PriceHistory> priceHistory = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "car_id", referencedColumnName = "id")

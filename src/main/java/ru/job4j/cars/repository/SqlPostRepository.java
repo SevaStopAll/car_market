@@ -15,14 +15,17 @@ public class SqlPostRepository implements PostRepository {
     private static final String FIND_BY_LAST_DAY = "FROM Post p JOIN FETCH p.car WHERE p.created BETWEEN :fCreatedBefore AND :fCreatedAfter";
     private static final String FIND_BY_PHOTO = "FROM Post p JOIN FETCH p.car WHERE fileId IS NOT NULL";
     private static final String FIND_BY_MODEL = "FROM Post p JOIN FETCH p.car WHERE p.car.name = :fName";
-    private static final String FIND_ALL = "FROM Post p JOIN FETCH p.car JOIN FETCH p.car.engine JOIN FETCH p.car.body JOIN FETCH p.car.transmission";
+    private static final String FIND_ALL = "FROM Post p JOIN FETCH p.car JOIN FETCH p.car.engine";
     private static final String FIND_BY_ID = "FROM Post p JOIN FETCH p.car WHERE p.id = :fId";
     private static final String DELETE = "DELETE FROM Post p JOIN FETCH p.car WHERE p.id = :fId";
-    private static final String FIND_BY_SOLD = "FROM Post p JOIN FETCH p.car where p.sold = :fSold";
-    private static final String SET_SOLD = "FROM Post p JOIN FETCH p.car SET p.sold = :fSold WHERE p.id = :pId";
-    private static final String SET_UNSOLD = "UPDATE Post p JOIN FETCH p.car SET p.sold = :fSold WHERE p.id = :pId";
+
     private final CrudRepository crudRepository;
 
+    /**
+     * Найти объявление за предыдущий день.
+     *
+     * @return список с объявлениями.
+     */
     @Override
     public List<Post> findByLastDay() {
         LocalDateTime beforePeriod = LocalDateTime.now().minusHours(24);
@@ -33,27 +36,54 @@ public class SqlPostRepository implements PostRepository {
         );
     }
 
+    /**
+     * Найти объявление с фото.
+     *
+     * @return список с объявлениями.
+     */
     @Override
     public List<Post> findByPhoto() {
         return crudRepository.query(FIND_BY_PHOTO, Post.class);
     }
 
+    /**
+     * Найти объявление по названию машины.
+     *
+     * @param key название машины.
+     * @return список с объявлениями.
+     */
     @Override
     public List<Post> findByModel(String key) {
         return crudRepository.query(FIND_BY_MODEL, Post.class, Map.of("fName", key));
     }
 
+    /**
+     * Сохранить в базе.
+     *
+     * @param post объявление.
+     * @return объявление с id.
+     */
     @Override
     public Post create(Post post) {
         crudRepository.run(session -> session.persist(post));
         return post;
     }
 
+    /**
+     * Лист всех объявлений
+     *
+     * @return список объявлений.
+     */
     @Override
     public List<Post> findAll() {
         return crudRepository.query(FIND_ALL, Post.class);
     }
 
+    /**
+     * Найти объявление по ID
+     *
+     * @return объявление.
+     */
     @Override
     public Optional<Post> findById(int postId) {
         return crudRepository.optional(
@@ -62,6 +92,12 @@ public class SqlPostRepository implements PostRepository {
         );
     }
 
+    /**
+     * Найти объявление по ID
+     * @param userId объявления.
+     *
+     * @return объявление.
+     */
     @Override
     public void delete(int userId) {
         crudRepository.run(

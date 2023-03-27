@@ -4,5 +4,9 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-       <include file="scripts/001_ddl_create_initial_schema.sql" relativeToChangelogFile="true"/>
+       <include file="scripts/001_ddl_create_engine_and_car_tables.sql" relativeToChangelogFile="true"/>
+       <include file="scripts/002_ddl_create_owner_and_file_tables.sql" relativeToChangelogFile="true"/>
+       <include file="scripts/003_ddl_create_auto_user_and_auto_post_tables.sql" relativeToChangelogFile="true"/>
+       <include file="scripts/004_ddl_create_price_history_and_participates_tables.sql" relativeToChangelogFile="true"/>
+       <include file="scripts/005_ddl_create_history_owner_table.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>

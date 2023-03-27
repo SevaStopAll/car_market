@@ -43,7 +43,7 @@ class SqlOwnerRepositoryTest {
         Owner owner = new Owner();
         ownerRepository.save(owner);
         ownerRepository.delete(owner.getId());
-        assertThatThrownBy(()-> ownerRepository.findById(owner.getId())).isInstanceOf(javax.persistence.NoResultException.class);
+        assertThatThrownBy(() -> ownerRepository.findById(owner.getId())).isInstanceOf(javax.persistence.NoResultException.class);
     }
 
     @Test
