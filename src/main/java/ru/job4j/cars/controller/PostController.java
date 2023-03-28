@@ -38,6 +38,24 @@ public class PostController {
             return "/posts";
         }
 
+    @GetMapping("/finished")
+    public String findSoldPosts(Model model) {
+        model.addAttribute("finishedPosts", postService.findDone(true));
+        return "posts/finished";
+    }
+
+    @GetMapping("/withPhoto")
+    public String findPostsWithPhoto(Model model) {
+        model.addAttribute("photoPosts", postService.findByPhoto());
+        return "posts/withPhoto";
+    }
+
+    @GetMapping("/carNam/{carName}")
+    public String findPostsByCar(Model model, @RequestParam("carName") String carName) {
+        model.addAttribute("foundByName", postService.findByModel(carName));
+        return "posts/foundByName";
+    }
+
     @GetMapping("/{id}")
     public String getById(Model model, @PathVariable int id) {
         var postOptional = postService.findById(id);

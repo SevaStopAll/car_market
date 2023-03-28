@@ -19,15 +19,10 @@
             <a class="navbar-brand" th:href="@{/tasks}">AutoWorld</a>
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav me-auto">
-                    <a class="nav-item nav-link" th:href="@{/posts/withPhoto}">Cars with photo</a>
-                    <a class="nav-item nav-link" th:href="@{/posts/finished}">Sold cars</a>
-                    <form class="form-inline">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="carName" class="sr-only">CarName</label>
-                            <input type="text" class="form-control" id="carName" placeholder="foundByName">
-                            <a class="btn btn-danger w-100" th:href="@{/posts/foundByName}">Find by car</a>
-                        </div>
-                    </form>
+                    <a class="nav-item nav-link active" th:href="@{/tasks}">All tasks</a>
+                    <a class="nav-item nav-link" th:href="@{/tasks/finished}">Done tasks</a>
+                    <a class="nav-item nav-link" th:href="@{/tasks/new}">New tasks</a>
+                    <a class="nav-item nav-link" th:href="@{/posts/finished}">Done tasks</a>
                 </div>
                 <div class="d-flex" th:if="${user.login == '�����'}">
                     <a class="nav-link" th:href="@{/users/register}">Sign up</a>
@@ -59,7 +54,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="post: ${posts}">
+                <tr th:each="post: ${finishedPosts}">
                     <td>
                         <div class="col">
                             <div class="mb">
@@ -81,7 +76,7 @@
                         <span th:if="${post.sold}">
                 <i class="bi bi-check-square"></i>
               </span>
-                    <span th:if="${!post.sold}">
+                        <span th:if="${!post.sold}">
                   <i class="bi bi-square"></i>
               </span>
                     <td>
