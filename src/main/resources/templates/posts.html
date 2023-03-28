@@ -21,13 +21,16 @@
                 <div class="navbar-nav me-auto">
                     <a class="nav-item nav-link" th:href="@{/posts/withPhoto}">Cars with photo</a>
                     <a class="nav-item nav-link" th:href="@{/posts/finished}">Sold cars</a>
-                    <form class="form-inline">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="carName" class="sr-only">CarName</label>
-                            <input type="text" class="form-control" id="carName" placeholder="foundByName">
-                            <a class="btn btn-danger w-100" th:href="@{/posts/foundByName}">Find by car</a>
-                        </div>
-                    </form>
+                    <div class="container">
+                        <form class="mt-3" th:action="@{/posts/Kopeika}">
+                            <div class="mb-3">
+                                <label for="carName" class="form-label"><b>Описание</b></label>
+                                <textarea class="form-control" id="carName" name="carName" rows="25" placeholder="Add car name"></textarea>
+                            </div>
+                            <div class="col-6"><button class="btn btn-primary w-100" type="submit">Сохранить</button>
+                            </div>
+                            </form>
+                    </div>
                 </div>
                 <div class="d-flex" th:if="${user.login == '�����'}">
                     <a class="nav-link" th:href="@{/users/register}">Sign up</a>

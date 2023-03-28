@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping("/posts")
+@RequestMapping("posts")
 @ThreadSafe
 @AllArgsConstructor
 public class PostController {
@@ -50,9 +50,11 @@ public class PostController {
         return "posts/withPhoto";
     }
 
-    @GetMapping("/carNam/{carName}")
-    public String findPostsByCar(Model model, @RequestParam("carName") String carName) {
-        model.addAttribute("foundByName", postService.findByModel(carName));
+    @GetMapping("/Kopeika")
+    public String findPostsByCar(Model model, HttpSession httpSession, @RequestParam(value = "carName") String car) {
+        var user = (User) httpSession.getAttribute("user");
+        List<Post> list = postService.findByModel(car);
+        model.addAttribute("posts", list);
         return "posts/foundByName";
     }
 
