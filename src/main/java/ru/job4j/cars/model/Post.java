@@ -50,4 +50,7 @@ public class Post {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "file_id", referencedColumnName = "id")
     private File file;
+
+    boolean sold;
+    int price;
 }

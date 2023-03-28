@@ -46,13 +46,15 @@
                 <th scope="col">Engine</th>
                 <th scope="col">Body</th>
                 <th scope="col">Transmission</th>
+                <th scope="col">Status</th>
+                <th scope="col">Price</th>
             </tr>
             </thead>
             <tbody>
                 <td>
                     <div class="col-3">
                         <div class="mb-3">
-                            <img th:src="@{/files/{fileId}(fileId=*{post.file.id})}" class="w-100" alt="No image">
+                            <img th:src="@{/files/{fileId}(fileId=*{post.file.id})}" class="w-250" alt="No image">
                         </div>
                     </div>
                 </td>
@@ -63,6 +65,8 @@
                 <td th:text="${post.car.engine.name}"/>
                 <td th:text="${post.car.body.name}"/>
                 <td th:text="${post.car.transmission.name}"/>
+                <td th:text="${post.sold}"/>
+                <td th:text="${post.price}"/>
             </tbody>
         </table>
     </div>
@@ -72,7 +76,11 @@
             <div class="col-6">
                 <div class="row">
                     <div class="col-4"><a class="btn btn-info w-100" th:href="@{/posts}">Posts</a></div>
-            </div>
+                    </div>
+    <div class="d-flex" th:if="${user.login == post.user.login}">
+        <div class="col-4"><a class="btn btn-success w-100" th:href="@{|/posts/finish/${post.id}|}">Sold</a>
+        </div>
+    </div>
         </div>
     </div>
 </div>

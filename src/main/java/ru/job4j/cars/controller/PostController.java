@@ -14,6 +14,8 @@ import ru.job4j.cars.model.User;
 import ru.job4j.cars.service.*;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/posts")
@@ -69,12 +71,25 @@ public class PostController {
             car.setTransmission(transmissionService.findById(transmissionId).get());
             carService.save(car);
             post.setCar(car);
+            if(!fileDto.isEmpty()) {
             post.setFile(fileService.save(new FileDto(fileDto.getOriginalFilename(), fileDto.getBytes())));
+            } else {
+                post.setFile(fileService.getFile(10).get());
+            }
+
             postService.create(post);
             return "redirect:/posts";
         } catch (Exception exception) {
             model.addAttribute("message", exception.getMessage());
             return "errors/404";
         }
+    }
+
+    @GetMapping("/finish/{id}")
+    public String finishTask(@PathVariable int id) {
+        Post post = postService.findById(id).get();
+        post.setSold(true);
+        postService.update(post);
+        return "redirect:/posts";
     }
 }

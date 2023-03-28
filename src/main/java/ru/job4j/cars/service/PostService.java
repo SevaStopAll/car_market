@@ -24,4 +24,6 @@ public interface PostService {
     void setSold(int userId);
 
     void setUnsold(int userId);
+
+    boolean update(Post post);
 }

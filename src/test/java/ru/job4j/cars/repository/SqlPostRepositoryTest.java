@@ -22,7 +22,7 @@ class SqlPostRepositoryTest {
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final PostRepository postRepository = new SqlPostRepository÷                                                 èìèìèìè(crudRepository);
+    private final PostRepository postRepository = new SqlPostRepository(crudRepository);
     private final CarRepository carRepository = new SqlCarRepository(crudRepository);
     private final EngineRepository engineRepository = new SqlEngineRepository(crudRepository);
     private final OwnerRepository ownerRepository = new SqlOwnerRepository(crudRepository);

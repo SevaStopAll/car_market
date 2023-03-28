@@ -12,6 +12,9 @@ public interface PostRepository {
     List<Post> findByModel(String key);
 
     Post create(Post post);
+
+    boolean update(Post post);
+
     List<Post> findAll();
 
     Optional<Post> findById(int postId);

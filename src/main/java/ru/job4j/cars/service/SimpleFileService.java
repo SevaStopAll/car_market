@@ -81,6 +81,11 @@ public class SimpleFileService implements FileService{
         return fileRepository.deleteById(id);
     }
 
+    @Override
+    public Optional<File> getFile(int id) {
+        return fileRepository.findById(id);
+    }
+
     private void deleteFile(String path) {
         try {
             Files.deleteIfExists(Path.of(path));

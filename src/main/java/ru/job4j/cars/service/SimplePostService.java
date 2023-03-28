@@ -37,7 +37,6 @@ public class SimplePostService implements PostService{
         return postRepository.findByModel(key);
     }
 
-
     @Override
     public List<Post> findAll() {
         return postRepository.findAll();
@@ -66,5 +65,10 @@ public class SimplePostService implements PostService{
     @Override
     public void setUnsold(int userId) {
         postRepository.setUnsold(userId);
+    }
+
+    @Override
+    public boolean update(Post post) {
+        return postRepository.update(post);
     }
 }

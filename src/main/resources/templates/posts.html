@@ -16,7 +16,7 @@
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" th:href="@{/tasks}">Your ToDoList</a>
+            <a class="navbar-brand" th:href="@{/tasks}">AutoWorld</a>
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav me-auto">
                     <a class="nav-item nav-link active" th:href="@{/tasks}">All tasks</a>
@@ -42,32 +42,43 @@
                 <tr>
                     <th scope="col">Photo</th>
                     <th scope="col">Post</th>
+                    <th scope="col">Price</th>
                     <th scope="col">User</th>
                     <th scope="col">Created</th>
                     <th scope="col">Car</th>
                     <th scope="col">Engine</th>
                     <th scope="col">Body</th>
                     <th scope="col">Transmission</th>
+                    <th scope="col">Finished</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="post: ${posts}">
                     <td>
-                        <div class="col-3">
-                            <div class="mb-3">
-                                <img th:src="@{/files/{fileId}(fileId=*{post.file.id})}" class="w-100" alt="No image">
+                        <div class="col">
+                            <div class="mb">
+                                <img th:src="@{/files/{fileId}(fileId=*{post.file.id})}" class="w-50" alt="No image">
                             </div>
                         </div>
                     </td>
                     <td><a th:text="${post.description}"
                            th:href="@{/posts/{postId}(postId=${post.id})}"></a>
                     </td>
+                    <td th:text="${post.price}"/>
                     <td th:text="${post.user.login}"/>
                     <td th:text="${post.created}"/>
                     <td th:text="${post.car.name}"/>
                     <td th:text="${post.car.engine.name}"/>
                     <td th:text="${post.car.body.name}"/>
                     <td th:text="${post.car.transmission.name}"/>
+                    <td>
+                        <span th:if="${post.sold}">
+                <i class="bi bi-check-square"></i>
+              </span>
+                    <span th:if="${!post.sold}">
+                  <i class="bi bi-square"></i>
+              </span>
+                    <td>
                 </tr>
                 </tbody>
             </table>

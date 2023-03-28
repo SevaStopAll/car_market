@@ -74,6 +74,17 @@ public class SqlPostRepository implements PostRepository {
     }
 
     /**
+     * Найти объявление за предыдущий день.
+     *
+     * @return список с объявлениями.
+     */
+    @Override
+    public boolean update(Post post) {
+        crudRepository.run(session -> session.merge(post));
+        return true;
+    }
+
+    /**
      * Лист всех объявлений
      *
      * @return список объявлений.
