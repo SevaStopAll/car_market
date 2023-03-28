@@ -40,6 +40,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">Photo</th>
                     <th scope="col">Post</th>
                     <th scope="col">User</th>
                     <th scope="col">Created</th>
@@ -47,7 +48,6 @@
                     <th scope="col">Engine</th>
                     <th scope="col">Body</th>
                     <th scope="col">Transmission</th>
-                    <th scope="col">Photo</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -59,7 +59,9 @@
                             </div>
                         </div>
                     </td>
-                    <td th:text="${post.description}"/>
+                    <td><a th:text="${post.description}"
+                           th:href="@{/posts/{postId}(postId=${post.id})}"></a>
+                    </td>
                     <td th:text="${post.user.login}"/>
                     <td th:text="${post.created}"/>
                     <td th:text="${post.car.name}"/>
@@ -73,7 +75,7 @@
         <div class="mb-3 row">
             <div class="col-sm">
                 <div class="row">
-                    <div class="col-sm"><a class="btn btn-danger w-100" th:href="@{tasks/add}">Add a new task</a></div>
+                    <div class="col-sm"><a class="btn btn-danger w-100" th:href="@{posts/create}">Add a new task</a></div>
                 </div>
             </div>
         </div>

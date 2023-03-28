@@ -16,7 +16,12 @@ import java.util.Optional;
 public class SimplePostService implements PostService{
     private final SqlPostRepository postRepository;
     private final SqlCarRepository carRepository;
+    private final SimpleFileService fileService;
 
+    @Override
+    public Post create(Post post) {
+        return postRepository.create(post);
+    }
     @Override
     public List<Post> findByLastDay() {
         return postRepository.findByLastDay();
@@ -32,10 +37,6 @@ public class SimplePostService implements PostService{
         return postRepository.findByModel(key);
     }
 
-    @Override
-    public Post create(Post post) {
-        return postRepository.create(post);
-    }
 
     @Override
     public List<Post> findAll() {
