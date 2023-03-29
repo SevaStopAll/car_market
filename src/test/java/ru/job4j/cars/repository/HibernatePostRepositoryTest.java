@@ -12,20 +12,20 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DbPostRepositoryTest {
+class HibernatePostRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final PostRepository postRepository = new DbPostRepository(crudRepository);
-    private final CarRepository carRepository = new DbCarRepository(crudRepository);
-    private final EngineRepository engineRepository = new DbEngineRepository(crudRepository);
-    private final UserRepository userRepository = new DbUserRepository(crudRepository);
-    private final FileRepository fileRepository = new DbFileRepository(crudRepository);
-    private final BodyRepository bodyRepository = new DbBodyRepository(crudRepository);
-    private final TransmissionRepository transmissionRepository = new DbTransmissionRepository(crudRepository);
+    private final PostRepository postRepository = new HibernatePostRepository(crudRepository);
+    private final CarRepository carRepository = new HibernateCarRepository(crudRepository);
+    private final EngineRepository engineRepository = new HibernateEngineRepository(crudRepository);
+    private final UserRepository userRepository = new HibernateUserRepository(crudRepository);
+    private final FileRepository fileRepository = new HibernateFileRepository(crudRepository);
+    private final BodyRepository bodyRepository = new HibernateBodyRepository(crudRepository);
+    private final TransmissionRepository transmissionRepository = new HibernateTransmissionRepository(crudRepository);
     @Test
     void whenFindByLastDay() {
         Post post = new Post();

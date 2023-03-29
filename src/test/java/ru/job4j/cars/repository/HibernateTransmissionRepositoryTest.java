@@ -9,9 +9,9 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DbTransmissionRepositoryTest {
+class HibernateTransmissionRepositoryTest {
     private final CrudRepository crudRepository = new SimpleCrudRepository(HibernateConfiguration.sf());
-    private final TransmissionRepository transmissionRepository = new DbTransmissionRepository(
+    private final TransmissionRepository transmissionRepository = new HibernateTransmissionRepository(
             crudRepository);
 
     @Test

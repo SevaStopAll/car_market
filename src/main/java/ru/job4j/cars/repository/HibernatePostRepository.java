@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class DbPostRepository implements PostRepository {
+public class HibernatePostRepository implements PostRepository {
     private static final String FIND_BY_LAST_DAY = "FROM Post p JOIN FETCH p.car JOIN FETCH p.car.engine JOIN FETCH p.car.body JOIN FETCH p.car.transmission JOIN FETCH p.file WHERE p.created BETWEEN :fCreatedBefore AND :fCreatedAfter";
     private static final String FIND_BY_PHOTO = "FROM Post p JOIN FETCH p.car JOIN FETCH p.car.engine JOIN FETCH p.car.body JOIN FETCH p.car.transmission JOIN FETCH p.file WHERE p.file.id != 10";
     private static final String FIND_BY_MODEL = "FROM Post p JOIN FETCH p.car JOIN FETCH p.car.engine JOIN FETCH p.car.body JOIN FETCH p.car.transmission JOIN FETCH p.file WHERE p.car.name = :fName";

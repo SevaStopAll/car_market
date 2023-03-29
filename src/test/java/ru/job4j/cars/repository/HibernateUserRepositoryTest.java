@@ -12,14 +12,14 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class DbUserRepositoryTest {
+class HibernateUserRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final UserRepository userRepository = new DbUserRepository(crudRepository);
+    private final UserRepository userRepository = new HibernateUserRepository(crudRepository);
 
     @Test
     void create() {

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class DbOwnerRepository implements OwnerRepository {
+public class HibernateOwnerRepository implements OwnerRepository {
 
     private static final String UPDATE = "UPDATE Owner SET name = :fName WHERE id = :fId";
     private static final String DELETE = "DELETE FROM Owner WHERE id = :fId";

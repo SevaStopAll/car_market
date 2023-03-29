@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Repository
-public class DbFileRepository implements FileRepository {
+public class HibernateFileRepository implements FileRepository {
 
     private static final String FIND_BY_ID = "FROM File WHERE id = :fId";
     private static final String DELETE_BY_ID = "DELETE FROM File WHERE id = :fId";

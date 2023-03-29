@@ -10,14 +10,14 @@ import ru.job4j.cars.model.File;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class DbFileRepositoryTest {
+class HibernateFileRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final FileRepository fileRepository = new DbFileRepository(crudRepository);
+    private final FileRepository fileRepository = new HibernateFileRepository(crudRepository);
 
     @Test
     public void whenSaveAndFileById() {

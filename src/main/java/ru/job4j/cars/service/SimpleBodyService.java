@@ -3,7 +3,7 @@ package ru.job4j.cars.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.cars.model.Body;
-import ru.job4j.cars.repository.DbBodyRepository;
+import ru.job4j.cars.repository.HibernateBodyRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class SimpleBodyService implements BodyService {
-    private final DbBodyRepository bodyRepository;
+    private final HibernateBodyRepository bodyRepository;
 
     @Override
     public Body save(Body body) {

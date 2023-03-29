@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class DbUserRepository implements UserRepository {
+public class HibernateUserRepository implements UserRepository {
 
     private static final String DELETE = "DELETE FROM User WHERE id = :fId";
     private static final String FIND_ALL_ORDER_BY_ID = "FROM User ORDER BY id ASC";

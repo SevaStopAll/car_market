@@ -12,14 +12,14 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class DbOwnerRepositoryTest {
+class HibernateOwnerRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final OwnerRepository ownerRepository = new DbOwnerRepository(crudRepository);
+    private final OwnerRepository ownerRepository = new HibernateOwnerRepository(crudRepository);
 
     @Test
     public void whenSave() {

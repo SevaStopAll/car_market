@@ -16,19 +16,19 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
-class DbCarRepositoryTest {
+class HibernateCarRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final CarRepository carRepository = new DbCarRepository(crudRepository);
-    private final EngineRepository engineRepository = new DbEngineRepository(crudRepository);
+    private final CarRepository carRepository = new HibernateCarRepository(crudRepository);
+    private final EngineRepository engineRepository = new HibernateEngineRepository(crudRepository);
 
-    private final BodyRepository bodyRepository = new DbBodyRepository(crudRepository);
+    private final BodyRepository bodyRepository = new HibernateBodyRepository(crudRepository);
 
-    private final TransmissionRepository transmissionRepository = new DbTransmissionRepository(crudRepository);
+    private final TransmissionRepository transmissionRepository = new HibernateTransmissionRepository(crudRepository);
 
     @Test
     public void whenSaveAndFindById() {
