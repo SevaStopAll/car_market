@@ -1,25 +1,23 @@
 package ru.job4j.cars.service;
 
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.job4j.cars.dto.FileDto;
 import ru.job4j.cars.model.File;
-import ru.job4j.cars.repository.SqlFileRepository;
+import ru.job4j.cars.repository.DbFileRepository;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class SimpleFileService implements FileService {
-    private final SqlFileRepository fileRepository;
+    private final DbFileRepository fileRepository;
 
     private final String storageDirectory;
 
-    public SimpleFileService(SqlFileRepository fileRepository,
+    public SimpleFileService(DbFileRepository fileRepository,
                              @Value("${file.directory}") String storageDirectory) {
         this.fileRepository = fileRepository;
         this.storageDirectory = storageDirectory;

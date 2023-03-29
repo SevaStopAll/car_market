@@ -34,7 +34,7 @@ public class UserController {
             model.addAttribute("message", "Ошибка регистрации. Логин занят.");
             return "error/404";
         }
-        return "redirect:/posts";
+        return "redirect:users/login";
     }
 
     @GetMapping("/login")

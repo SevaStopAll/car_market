@@ -3,7 +3,7 @@ package ru.job4j.cars.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.cars.model.Engine;
-import ru.job4j.cars.repository.SqlEngineRepository;
+import ru.job4j.cars.repository.DbEngineRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class SimpleEngineService implements EngineService {
-    private final SqlEngineRepository engineRepository;
+    private final DbEngineRepository engineRepository;
     @Override
     public Engine save(Engine engine) {
         return engineRepository.save(engine);

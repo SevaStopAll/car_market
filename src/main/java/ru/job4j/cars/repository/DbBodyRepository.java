@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class SqlBodyRepository implements BodyRepository {
+public class DbBodyRepository implements BodyRepository {
 
     private static final String UPDATE = "UPDATE Body SET name = :fName WHERE id = :fId";
     private static final String DELETE = "DELETE FROM Body WHERE id = :fId";

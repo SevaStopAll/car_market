@@ -17,7 +17,7 @@ class DbFileRepositoryTest {
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final FileRepository fileRepository = new SqlFileRepository(crudRepository);
+    private final FileRepository fileRepository = new DbFileRepository(crudRepository);
 
     @Test
     public void whenSaveAndFileById() {

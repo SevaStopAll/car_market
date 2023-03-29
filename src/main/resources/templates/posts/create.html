@@ -9,28 +9,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
-    <title>Создание вакансии</title>
+    <title>Создание объявления</title>
 </head>
 <body>
 <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #c0c0c0;">
         <div class="container">
-            <a class="navbar-brand" href="/">AutoWorld</a>
+            <a class="navbar-brand" th:href="@{/posts}">AutoWorld</a>
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav me-auto">
-                    <a class="nav-item nav-link" href="/">Главная</a>
-                    <a class="nav-item nav-link" th:href="@{/vacancies}">Вакансии</a>
-                    <a class="nav-item nav-link" th:href="@{/candidates}">Кандидаты</a>
-                    <a class="nav-item nav-link active" th:href="@{/vacancies/create}">Создать вакансию</a>
-                    <a class="nav-item nav-link" th:href="@{/candidates/create}">Создать резюме</a>
+                    <a class="nav-item nav-link" th:href="@{/posts/withPhoto}">Машины с фото</a>
+                    <a class="nav-item nav-link" th:href="@{/posts/finished}">Активные объявления</a>
+                    <a class="nav-item nav-link" th:href="@{/posts/yesterday}">Объявления за 24 часа</a>
                 </div>
-                <div class="d-flex" th:if="${user.login == 'Гость'}">
+                <div class="d-flex" th:if="${user.login == 'Guest'}">
                     <a class="nav-link text-secondary me-3" th:href="@{/users/register}">Регистрация</a>
-                    <a class="nav-link text-secondary" th:href="@{/users/login}">Войти</a>
+                    <a class="nav-link text-secondary me-3" th:href="@{/users/login}">Вход</a>
                 </div>
-                <div class="d-flex" th:if="${user.login != 'Гость'}">
-                    <a class="nav-link text-secondary me-3" href="#" th:text="${user.login}"></a>
-                    <a class="nav-link text-secondary" th:href="@{/users/logout}">Выйти</a>
+                <div class="d-flex" th:if="${user.login != 'Guest'}">
+                    <a class="nav-link text-secondary me-3" th:text="${user.login}"></a>
+                    <a class="nav-link text-secondary me-3" th:href="@{/users/logout}">Выход</a>
                 </div>
             </div>
         </div>
@@ -43,18 +41,18 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label"><b>Описание</b></label>
-                <textarea class="form-control" id="description" name="description" rows="25" placeholder="Опишите требования к кандидату"></textarea>
+                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Опишите автомобиль"></textarea>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label"><b>Цена</b></label>
-                <textarea class="form-control" id="price" name="price" rows="25" placeholder="Опишите требования к кандидату"></textarea>
+                <input type="text" class="form-control" id="price" name="carName" placeholder="Модель автомобиля">
             </div>
         <div class="mb-3">
             <label for="car.name" class="form-label"><b>Название</b></label>
-            <input type="text" class="form-control" id="car.name" name="carName" placeholder="Предлагая должность, например, Ведущий Java разработчик">
+            <input type="text" class="form-control" id="car.name" name="carName" placeholder="Модель автомобиля">
         </div>
             <div class="mb-3">
-                <label for="car.engine"><b>Engine</b></label>
+                <label for="car.engine"><b>Двигатель</b></label>
                 <select class="form-control" id="car.engine" name="engineId">
                     <option th:each="engine : ${engines}" th:value="${engine.id}" th:text="${engine.name}"></option>
                 </select>

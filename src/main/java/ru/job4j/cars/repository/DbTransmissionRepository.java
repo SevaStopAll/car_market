@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class SqlTransmissionRepository implements TransmissionRepository {
+public class DbTransmissionRepository implements TransmissionRepository {
     private static final String UPDATE = "UPDATE Transmission SET name = :fName WHERE id = :fId";
     private static final String DELETE = "DELETE FROM Transmission WHERE id = :fId";
     private static final String FIND_ALL = "FROM Transmission";

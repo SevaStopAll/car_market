@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DbTransmissionRepositoryTest {
     private final CrudRepository crudRepository = new SimpleCrudRepository(HibernateConfiguration.sf());
-    private final TransmissionRepository transmissionRepository = new SqlTransmissionRepository(
+    private final TransmissionRepository transmissionRepository = new DbTransmissionRepository(
             crudRepository);
 
     @Test

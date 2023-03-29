@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DbBodyRepositoryTest {
     private final CrudRepository crudRepository = new SimpleCrudRepository(HibernateConfiguration.sf());
-    private final BodyRepository bodyRepository = new SqlBodyRepository(
+    private final BodyRepository bodyRepository = new DbBodyRepository(
             crudRepository);
 
     @Test

@@ -23,12 +23,12 @@ class DbCarRepositoryTest {
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final CarRepository carRepository = new SqlCarRepository(crudRepository);
-    private final EngineRepository engineRepository = new SqlEngineRepository(crudRepository);
+    private final CarRepository carRepository = new DbCarRepository(crudRepository);
+    private final EngineRepository engineRepository = new DbEngineRepository(crudRepository);
 
-    private final BodyRepository bodyRepository = new SqlBodyRepository(crudRepository);
+    private final BodyRepository bodyRepository = new DbBodyRepository(crudRepository);
 
-    private final TransmissionRepository transmissionRepository = new SqlTransmissionRepository(crudRepository);
+    private final TransmissionRepository transmissionRepository = new DbTransmissionRepository(crudRepository);
 
     @Test
     public void whenSaveAndFindById() {

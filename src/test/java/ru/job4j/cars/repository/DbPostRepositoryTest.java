@@ -19,13 +19,13 @@ class DbPostRepositoryTest {
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final PostRepository postRepository = new SqlPostRepository(crudRepository);
-    private final CarRepository carRepository = new SqlCarRepository(crudRepository);
-    private final EngineRepository engineRepository = new SqlEngineRepository(crudRepository);
-    private final UserRepository userRepository = new SqlUserRepository(crudRepository);
-    private final FileRepository fileRepository = new SqlFileRepository(crudRepository);
-    private final BodyRepository bodyRepository = new SqlBodyRepository(crudRepository);
-    private final TransmissionRepository transmissionRepository = new SqlTransmissionRepository(crudRepository);
+    private final PostRepository postRepository = new DbPostRepository(crudRepository);
+    private final CarRepository carRepository = new DbCarRepository(crudRepository);
+    private final EngineRepository engineRepository = new DbEngineRepository(crudRepository);
+    private final UserRepository userRepository = new DbUserRepository(crudRepository);
+    private final FileRepository fileRepository = new DbFileRepository(crudRepository);
+    private final BodyRepository bodyRepository = new DbBodyRepository(crudRepository);
+    private final TransmissionRepository transmissionRepository = new DbTransmissionRepository(crudRepository);
     @Test
     void whenFindByLastDay() {
         Post post = new Post();

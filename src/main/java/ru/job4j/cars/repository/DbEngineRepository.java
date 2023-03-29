@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class SqlEngineRepository implements EngineRepository {
+public class DbEngineRepository implements EngineRepository {
 
     private static final String UPDATE = "UPDATE Engine SET name = :fName WHERE id = :fId";
     private static final String DELETE = "DELETE FROM Engine WHERE id = :fId";

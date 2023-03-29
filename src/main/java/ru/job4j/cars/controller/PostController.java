@@ -40,7 +40,7 @@ public class PostController {
 
     @GetMapping("/finished")
     public String findSoldPosts(Model model) {
-        model.addAttribute("finishedPosts", postService.findDone(true));
+        model.addAttribute("finishedPosts", postService.findDone(false));
         return "posts/finished";
     }
 

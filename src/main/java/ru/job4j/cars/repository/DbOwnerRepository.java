@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import ru.job4j.cars.model.Owner;
-import ru.job4j.cars.model.User;
 
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class SqlOwnerRepository implements OwnerRepository {
+public class DbOwnerRepository implements OwnerRepository {
 
     private static final String UPDATE = "UPDATE Owner SET name = :fName WHERE id = :fId";
     private static final String DELETE = "DELETE FROM Owner WHERE id = :fId";

@@ -3,8 +3,7 @@ package ru.job4j.cars.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.cars.model.Transmission;
-import ru.job4j.cars.repository.SqlTransmissionRepository;
-import ru.job4j.cars.repository.TransmissionRepository;
+import ru.job4j.cars.repository.DbTransmissionRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +11,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class SimpleTransmissionService implements TransmissionService {
-    private final SqlTransmissionRepository transmissionRepository;
+    private final DbTransmissionRepository transmissionRepository;
     @Override
     public Transmission save(Transmission transmission) {
         return transmissionRepository.save(transmission);

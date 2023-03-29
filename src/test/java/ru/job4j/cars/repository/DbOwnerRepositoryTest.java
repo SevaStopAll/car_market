@@ -19,7 +19,7 @@ class DbOwnerRepositoryTest {
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final OwnerRepository ownerRepository = new SqlOwnerRepository(crudRepository);
+    private final OwnerRepository ownerRepository = new DbOwnerRepository(crudRepository);
 
     @Test
     public void whenSave() {

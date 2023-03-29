@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DbEngineRepositoryTest {
     private final CrudRepository crudRepository = new SimpleCrudRepository(HibernateConfiguration.sf());
-    private final EngineRepository engineRepository = new SqlEngineRepository(
+    private final EngineRepository engineRepository = new DbEngineRepository(
             crudRepository);
 
     @Test

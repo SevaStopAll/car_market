@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
-        System.out.println("App is here: http://localhost:8080/users/login");
+        System.out.println("App is here: http://localhost:8080/posts");
     }
 }

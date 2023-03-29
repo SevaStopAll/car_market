@@ -12,7 +12,7 @@ public class UserUsage {
                 .configure().build();
         try (SessionFactory sf = new MetadataSources(registry)
                 .buildMetadata().buildSessionFactory()) {
-            var userRepository = new SqlUserRepository(new SimpleCrudRepository(sf));
+            var userRepository = new DbUserRepository(new SimpleCrudRepository(sf));
             var user = new User();
             user.setLogin("admin");
             user.setPassword("admin");

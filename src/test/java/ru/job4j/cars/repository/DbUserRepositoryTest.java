@@ -19,7 +19,7 @@ class DbUserRepositoryTest {
             .buildMetadata().buildSessionFactory();
 
     private final CrudRepository crudRepository = new SimpleCrudRepository(sf);
-    private final UserRepository userRepository = new SqlUserRepository(crudRepository);
+    private final UserRepository userRepository = new DbUserRepository(crudRepository);
 
     @Test
     void create() {

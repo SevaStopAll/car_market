@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class SqlCarRepository implements CarRepository {
+public class DbCarRepository implements CarRepository {
 
     private static final String UPDATE = "UPDATE Car c SET name = :fName, created = :fCreated, transmission = :fTransmission, body = :fBody WHERE c.id = :fId";
     private static final String DELETE = "DELETE FROM Car c WHERE c.id = :fId";

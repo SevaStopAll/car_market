@@ -2,20 +2,18 @@ package ru.job4j.cars.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.job4j.cars.dto.PostDto;
 import ru.job4j.cars.model.Post;
-import ru.job4j.cars.repository.SqlCarRepository;
-import ru.job4j.cars.repository.SqlPostRepository;
+import ru.job4j.cars.repository.DbCarRepository;
+import ru.job4j.cars.repository.DbPostRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class SimplePostService implements PostService {
-    private final SqlPostRepository postRepository;
-    private final SqlCarRepository carRepository;
+    private final DbPostRepository postRepository;
+    private final DbCarRepository carRepository;
     private final SimpleFileService fileService;
 
     @Override
