@@ -1,11 +1,21 @@
 # job4j_cars
 
-## About
+## О проекте
 
-### This a test project for use and learn Web Apps and, first of all, Hibernate.
+### Этот тестовый проект имитирует сайт по продаже автомобилей. С точки зрения обучения цель - отработать взаимодействие с сложными объектами, создаваемыми с помощью аннотаций и Hibernate, использующих связи различных типов между таблицами.
 
-#### The main task is understanding web application architecture and Hibernate principles and simulate cars marketplace site. User can sell and buy a car from other people.
+## Возможности приложения
+### На главном экране есть лист всех объявлений. А также три ссылки: машины с фото, активные объявления и объявления за 24 часа
+![image](https://user-images.githubusercontent.com/115623776/228577222-8110d1c9-757f-41d8-97ac-6ad65236618a.png)
 
-#### Stack:  Spring Boot, PostgreSQL + Hibernate, Thymeleaf, Bootstrap, Liquibase, Sql2o.
+### Каждое объявление можно открыть, и, если пользователь является владельцем машины, снять с публикации или, наоборот, вернуть в продажу. 
+![image](https://user-images.githubusercontent.com/115623776/228577912-3cc5fa90-5de4-4cca-94e8-72911ba8b279.png)
 
-### Launch Project. Launch Main.java in job4j_cars/src/main/java/job4j_cars
+### Создать объявление
+![image](https://user-images.githubusercontent.com/115623776/228578147-5096cc60-aee4-49e6-8f0a-68ebe18138ce.png)
+
+#### Стек:  Spring Boot, PostgreSQL + Hibernate, Thymeleaf, Bootstrap, Liquibase, Sql2o.
+
+#### Требования: Java 17, PostgreSQL, Maven 3.8.
+
+### Запуск проекта. Запустите файл Main.java in job4j_cars/src/main/java/job4j_cars
