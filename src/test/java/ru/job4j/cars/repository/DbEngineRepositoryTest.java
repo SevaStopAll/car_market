@@ -9,7 +9,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SqlEngineRepositoryTest {
+class DbEngineRepositoryTest {
     private final CrudRepository crudRepository = new SimpleCrudRepository(HibernateConfiguration.sf());
     private final EngineRepository engineRepository = new SqlEngineRepository(
             crudRepository);

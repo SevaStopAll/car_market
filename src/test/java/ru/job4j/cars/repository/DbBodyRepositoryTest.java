@@ -3,14 +3,13 @@ package ru.job4j.cars.repository;
 import org.junit.jupiter.api.Test;
 import ru.job4j.cars.configuration.HibernateConfiguration;
 import ru.job4j.cars.model.Body;
-import ru.job4j.cars.model.Engine;
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SqlBodyRepositoryTest {
+class DbBodyRepositoryTest {
     private final CrudRepository crudRepository = new SimpleCrudRepository(HibernateConfiguration.sf());
     private final BodyRepository bodyRepository = new SqlBodyRepository(
             crudRepository);

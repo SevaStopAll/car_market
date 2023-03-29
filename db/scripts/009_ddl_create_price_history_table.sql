@@ -7,9 +7,9 @@ CREATE TABLE IF NOT EXISTS PRICE_HISTORY
     post_id INT NOT NULL REFERENCES auto_post(id)
 );
 
-comment on table price_history is 'Изменение цены';
-comment on column price_history.id is 'Идентификатор';
-comment on column price_history.before is 'Цена до';
-comment on column price_history.after is 'Цена после';
-comment on column price_history.created is 'Дата создания';
-comment on column price_history.post_id is 'Идентификатор объявления';
+comment on table price_history is 'РР·РјРµРЅРµРЅРёРµ С†РµРЅС‹';
+comment on column price_history.id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column price_history.before is 'Р¦РµРЅР° РґРѕ';
+comment on column price_history.after is 'Р¦РµРЅР° РїРѕСЃР»Рµ';
+comment on column price_history.created is 'Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ';
+comment on column price_history.post_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕР±СЉСЏРІР»РµРЅРёСЏ';

@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS history_owner
     endAt     TIMESTAMP
 );
 
-comment on table history_owner is 'Таблица с историей владения автомобилей';
-comment on column history_owner.car_id is 'Идентификатор автомобиля';
-comment on column history_owner.owner_id is 'Идентификатор водителя';
-comment on column history_owner.startAt is 'Дата покупки';
-comment on column history_owner.endAt is 'Дата продажи';
+comment on table history_owner is 'РўР°Р±Р»РёС†Р° СЃ РёСЃС‚РѕСЂРёРµР№ РІР»Р°РґРµРЅРёСЏ Р°РІС‚РѕРјРѕР±РёР»РµР№';
+comment on column history_owner.car_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ Р°РІС‚РѕРјРѕР±РёР»СЏ';
+comment on column history_owner.owner_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РІРѕРґРёС‚РµР»СЏ';
+comment on column history_owner.startAt is 'Р”Р°С‚Р° РїРѕРєСѓРїРєРё';
+comment on column history_owner.endAt is 'Р”Р°С‚Р° РїСЂРѕРґР°Р¶Рё';

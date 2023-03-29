@@ -4,9 +4,9 @@ CREATE TABLE IF NOT EXISTS engine
     name TEXT NOT NULL
 );
 
-comment on table engine is 'Таблица с двигателями';
-comment on column engine.id is 'Идентификатор';
-comment on column engine.name is 'Название';
+comment on table engine is 'РўР°Р±Р»РёС†Р° СЃ РґРІРёРіР°С‚РµР»СЏРјРё';
+comment on column engine.id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column engine.name is 'РќР°Р·РІР°РЅРёРµ';
 
 
 

@@ -11,12 +11,12 @@ CREATE TABLE IF NOT EXISTS auto_post
     price int default 10000
 );
 
-comment on table auto_post is 'Таблица с объявлениями';
-comment on column auto_post.id is 'Идентификатор';
-comment on column auto_post.description is 'Описание';
-comment on column auto_post.created is 'Дата создания';
-comment on column auto_post.auto_user_id is 'Идентификатор пользователя';
-comment on column auto_post.car_id is 'Машина из объявления';
-comment on column auto_post.file_id is 'Фотография';
-comment on column auto_post.sold is 'Статус продажи';
-comment on column auto_post.price is 'Цена продажи';
+comment on table auto_post is 'РўР°Р±Р»РёС†Р° СЃ РѕР±СЉСЏРІР»РµРЅРёСЏРјРё';
+comment on column auto_post.id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column auto_post.description is 'РћРїРёСЃР°РЅРёРµ';
+comment on column auto_post.created is 'Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ';
+comment on column auto_post.auto_user_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ';
+comment on column auto_post.car_id is 'РњР°С€РёРЅР° РёР· РѕР±СЉСЏРІР»РµРЅРёСЏ';
+comment on column auto_post.file_id is 'Р¤РѕС‚РѕРіСЂР°С„РёСЏ';
+comment on column auto_post.sold is 'РЎС‚Р°С‚СѓСЃ РїСЂРѕРґР°Р¶Рё';
+comment on column auto_post.price is 'Р¦РµРЅР° РїСЂРѕРґР°Р¶Рё';

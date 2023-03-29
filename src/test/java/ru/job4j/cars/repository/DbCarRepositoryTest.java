@@ -16,7 +16,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
-class SqlCarRepositoryTest {
+class DbCarRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)

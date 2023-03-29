@@ -5,9 +5,9 @@ create table IF NOT EXISTS auto_user
     password TEXT NOT NULL
 );
 
-comment on table auto_user is 'Таблица с пользователями';
-comment on column auto_user.id is 'Идентификатор';
-comment on column auto_user.login is 'Логин';
-comment on column auto_user.password is 'Пароль';
+comment on table auto_user is 'РўР°Р±Р»РёС†Р° СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё';
+comment on column auto_user.id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column auto_user.login is 'Р›РѕРіРёРЅ';
+comment on column auto_user.password is 'РџР°СЂРѕР»СЊ';
 
 

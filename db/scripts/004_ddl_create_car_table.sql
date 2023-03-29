@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS car
     transmission_id INT NOT NULL REFERENCES transmission(id)
 );
 
-comment on table car is 'Таблица с автомобилями';
-comment on column car.id is 'Идентификатор';
-comment on column car.name is 'Название';
-comment on column car.engine_id is 'Идентификатор двигателя';
-comment on column car.body_id is 'Идентификатор кузова';
-comment on column car.transmission_id is 'Идентификатор трансмиссии';
+comment on table car is 'РўР°Р±Р»РёС†Р° СЃ Р°РІС‚РѕРјРѕР±РёР»СЏРјРё';
+comment on column car.id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column car.name is 'РќР°Р·РІР°РЅРёРµ';
+comment on column car.engine_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РґРІРёРіР°С‚РµР»СЏ';
+comment on column car.body_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РєСѓР·РѕРІР°';
+comment on column car.transmission_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ С‚СЂР°РЅСЃРјРёСЃСЃРёРё';

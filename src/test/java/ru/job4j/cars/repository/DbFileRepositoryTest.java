@@ -10,7 +10,7 @@ import ru.job4j.cars.model.File;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-class SqlFileRepositoryTest {
+class DbFileRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)

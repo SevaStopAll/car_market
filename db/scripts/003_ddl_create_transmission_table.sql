@@ -4,6 +4,6 @@ CREATE TABLE IF NOT EXISTS transmission
     name TEXT NOT NULL
 );
 
-comment on table engine is 'Таблица с типами трансмиссии';
-comment on column engine.id is 'Идентификатор';
-comment on column engine.name is 'Название';
+comment on table engine is 'РўР°Р±Р»РёС†Р° СЃ С‚РёРїР°РјРё С‚СЂР°РЅСЃРјРёСЃСЃРёРё';
+comment on column engine.id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column engine.name is 'РќР°Р·РІР°РЅРёРµ';

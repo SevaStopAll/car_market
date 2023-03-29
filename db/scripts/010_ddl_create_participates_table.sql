@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS PARTICIPATES
     auto_user_id int not null REFERENCES auto_user (id)
 );
 
-comment on table participates is 'Таблица с хранением подписок на объявления';
-comment on column participates.auto_post_id is 'Идентификатор объявления';
-comment on column participates.auto_user_id is 'Идентификатор пользователя';
+comment on table participates is 'РўР°Р±Р»РёС†Р° СЃ С…СЂР°РЅРµРЅРёРµРј РїРѕРґРїРёСЃРѕРє РЅР° РѕР±СЉСЏРІР»РµРЅРёСЏ';
+comment on column participates.auto_post_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РѕР±СЉСЏРІР»РµРЅРёСЏ';
+comment on column participates.auto_user_id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ';

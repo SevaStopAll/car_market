@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SqlPostRepositoryTest {
+class DbPostRepositoryTest {
     private static final StandardServiceRegistry REGISTRY = new StandardServiceRegistryBuilder()
             .configure().build();
     private final SessionFactory sf = new MetadataSources(REGISTRY)
@@ -75,7 +75,7 @@ class SqlPostRepositoryTest {
         body.setName("body");
         bodyRepository.save(body);
         Transmission transmission = new Transmission();
-        transmission.setName("robot");
+        transmission.setName("mechanic");
         transmissionRepository.save(transmission);
         car.setName("Car");
         car.setEngine(engine);
@@ -112,7 +112,7 @@ class SqlPostRepositoryTest {
         body.setName("body");
         bodyRepository.save(body);
         Transmission transmission = new Transmission();
-        transmission.setName("robot");
+        transmission.setName("automatic");
         transmissionRepository.save(transmission);
         car.setName("Car");
         car.setEngine(engine);
@@ -148,7 +148,7 @@ class SqlPostRepositoryTest {
         body.setName("body");
         bodyRepository.save(body);
         Transmission transmission = new Transmission();
-        transmission.setName("robot");
+        transmission.setName("hydro");
         transmissionRepository.save(transmission);
         car.setName("Car");
         car.setEngine(engine);
@@ -178,7 +178,7 @@ class SqlPostRepositoryTest {
         body2.setName("body");
         bodyRepository.save(body2);
         Transmission transmission2 = new Transmission();
-        transmission2.setName("robot");
+        transmission2.setName("chinese robot");
         transmissionRepository.save(transmission2);
         car2.setName("Car");
         car2.setEngine(engine);

@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS owner
     name      TEXT      NOT NULL
 );
 
-comment on table owner is 'Таблица с водителями';
-comment on column owner.id is 'Идентификатор';
-comment on column owner.name is 'Имя';
+comment on table owner is 'РўР°Р±Р»РёС†Р° СЃ РІРѕРґРёС‚РµР»СЏРјРё';
+comment on column owner.id is 'РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ';
+comment on column owner.name is 'РРјСЏ';
 
