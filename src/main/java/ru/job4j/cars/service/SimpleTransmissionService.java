@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class SimpleTransmissionService implements TransmissionService{
+public class SimpleTransmissionService implements TransmissionService {
     private final SqlTransmissionRepository transmissionRepository;
     @Override
     public Transmission save(Transmission transmission) {

@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS auto_post
     auto_user_id INT       NOT NULL REFERENCES auto_user (id),
     car_id int REFERENCES car (id),
     file_id int REFERENCES file (id),
-    boolean sold default false,
-    int price NOT NULL
+    sold boolean default false,
+    price int default 10000
 );
 
 comment on table auto_post is 'Таблица с объявлениями';

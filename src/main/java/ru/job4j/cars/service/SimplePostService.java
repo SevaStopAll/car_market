@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class SimplePostService implements PostService{
+public class SimplePostService implements PostService {
     private final SqlPostRepository postRepository;
     private final SqlCarRepository carRepository;
     private final SimpleFileService fileService;

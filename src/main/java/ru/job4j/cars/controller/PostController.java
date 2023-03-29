@@ -50,12 +50,18 @@ public class PostController {
         return "posts/withPhoto";
     }
 
-    @GetMapping("/Kopeika")
+    @GetMapping("/byName")
     public String findPostsByCar(Model model, HttpSession httpSession, @RequestParam(value = "carName") String car) {
         var user = (User) httpSession.getAttribute("user");
         List<Post> list = postService.findByModel(car);
         model.addAttribute("posts", list);
         return "posts/foundByName";
+    }
+
+    @GetMapping("/yesterday")
+    public String findPostsByCar(Model model) {
+        model.addAttribute("posts", postService.findByLastDay());
+        return "posts/yesterday";
     }
 
     @GetMapping("/{id}")
@@ -91,7 +97,7 @@ public class PostController {
             car.setTransmission(transmissionService.findById(transmissionId).get());
             carService.save(car);
             post.setCar(car);
-            if(!fileDto.isEmpty()) {
+            if (!fileDto.isEmpty()) {
             post.setFile(fileService.save(new FileDto(fileDto.getOriginalFilename(), fileDto.getBytes())));
             } else {
                 post.setFile(fileService.getFile(10).get());
