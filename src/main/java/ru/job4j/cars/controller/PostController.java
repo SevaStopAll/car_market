@@ -51,7 +51,8 @@ public class PostController {
     }
 
     @GetMapping("/byName")
-    public String findPostsByCar(Model model, HttpSession httpSession, @RequestParam(value = "carName") String car) {
+    public String findPostsByCar(Model model, HttpSession httpSession,
+                                 @RequestParam(value = "carName") String car) {
         var user = (User) httpSession.getAttribute("user");
         List<Post> list = postService.findByModel(car);
         model.addAttribute("posts", list);
@@ -85,30 +86,28 @@ public class PostController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Post post, @SessionAttribute User user, @RequestParam("carName") String carName,
+    public String create(@ModelAttribute Post post, @SessionAttribute User user,
+                         @RequestParam("carName") String carName,
                          @RequestParam("engineId") Integer engineId, @RequestParam("bodyId") Integer bodyId,
-                         @RequestParam("transmissionId") Integer transmissionId, @RequestParam MultipartFile fileDto, Model model) {
-        try {
-            post.setUser(user);
-            var car = new Car();
-            car.setName(carName);
-            car.setEngine(engineService.findById(engineId).get());
-            car.setBody(bodyService.findById(bodyId).get());
-            car.setTransmission(transmissionService.findById(transmissionId).get());
-            carService.save(car);
-            post.setCar(car);
-            if (!fileDto.isEmpty()) {
-            post.setFile(fileService.save(new FileDto(fileDto.getOriginalFilename(), fileDto.getBytes())));
-            } else {
-                post.setFile(fileService.getFile(10).get());
-            }
-
-            postService.create(post);
-            return "redirect:/posts";
-        } catch (Exception exception) {
-            model.addAttribute("message", exception.getMessage());
-            return "errors/404";
+                         @RequestParam("transmissionId") Integer transmissionId,
+                         @RequestParam MultipartFile fileDto) throws IOException {
+        post.setUser(user);
+        var car = new Car();
+        car.setName(carName);
+        car.setEngine(engineService.findById(engineId).get());
+        car.setBody(bodyService.findById(bodyId).get());
+        car.setTransmission(transmissionService.findById(transmissionId).get());
+        carService.save(car);
+        post.setCar(car);
+        if (!fileDto.isEmpty()) {
+            post.setFile(fileService.save(new FileDto(fileDto.getOriginalFilename(),
+                    fileDto.getBytes())));
+        } else {
+            post.setFile(fileService.getFile(10).get());
         }
+
+        postService.create(post);
+        return "redirect:/posts";
     }
 
     @GetMapping("/finish/{id}")

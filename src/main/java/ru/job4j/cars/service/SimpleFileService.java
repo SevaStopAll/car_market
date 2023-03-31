@@ -54,9 +54,6 @@ public class SimpleFileService implements FileService {
     @Override
     public Optional<FileDto> getFileById(int id) {
         var fileOptional = fileRepository.findById(id);
-        if (fileOptional.isEmpty()) {
-            return Optional.empty();
-        }
         var content = readFileAsBytes(fileOptional.get().getPath());
         return Optional.of(new FileDto(fileOptional.get().getName(), content));
     }

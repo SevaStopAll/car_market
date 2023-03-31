@@ -13,8 +13,6 @@ import java.util.Optional;
 @AllArgsConstructor
 public class SimplePostService implements PostService {
     private final HibernatePostRepository postRepository;
-    private final HibernateCarRepository carRepository;
-    private final SimpleFileService fileService;
 
     @Override
     public Post create(Post post) {

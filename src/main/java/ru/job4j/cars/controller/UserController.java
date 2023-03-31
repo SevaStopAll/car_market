@@ -44,7 +44,8 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginUser(@ModelAttribute User user, Model model, HttpServletRequest request) {
-        var userOptional = userService.findUserByLoginAndPassword(user.getLogin(), user.getPassword());
+        var userOptional = userService
+                .findUserByLoginAndPassword(user.getLogin(), user.getPassword());
         if (userOptional.isEmpty()) {
             model.addAttribute("error", "Почта или пароль введены неверно");
             return "error/404";
