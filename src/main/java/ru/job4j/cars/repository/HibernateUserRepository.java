@@ -2,6 +2,8 @@ package ru.job4j.cars.repository;
 
 
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.User;
 
@@ -20,6 +22,7 @@ public class HibernateUserRepository implements UserRepository {
     private static final String FIND_BY_LOGIN = "FROM User u WHERE u.login = :fKey";
 
     private final CrudRepository crudRepository;
+    static final Logger LOG = LoggerFactory.getLogger(HibernateUserRepository.class);
 
     /**
      * Сохранить в базе.
@@ -29,7 +32,12 @@ public class HibernateUserRepository implements UserRepository {
      */
     @Override
     public Optional<User> create(User user) {
-        crudRepository.run(session -> session.persist(user));
+        try {
+            crudRepository.run(session -> session.persist(user));
+        } catch (Exception e) {
+            LOG.error(e.getLocalizedMessage(), e);
+            return Optional.empty();
+        }
         return Optional.of(user);
     }
 
