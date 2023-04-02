@@ -34,11 +34,11 @@ public class HibernateUserRepository implements UserRepository {
     public Optional<User> create(User user) {
         try {
             crudRepository.run(session -> session.persist(user));
+            return Optional.of(user);
         } catch (Exception e) {
             LOG.error(e.getLocalizedMessage(), e);
-            return Optional.empty();
         }
-        return Optional.of(user);
+        return Optional.empty();
     }
 
     /**
