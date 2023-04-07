@@ -110,9 +110,9 @@ public class HibernatePostRepository implements PostRepository {
     }
 
     /**
-     * Найти объявление по ID
+     * Обновить объявление по ID
      *
-     * @return объявление.
+     * @return обновленное объявление.
      */
     @Override
     public Optional<Post> findById(int postId) {
