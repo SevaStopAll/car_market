@@ -18,7 +18,7 @@
 - **Spring Boot 2.7.10**
 - **PostgreSQL 14**
 - **Hibernate**
-Spring Boot, PostgreSQL + Hibernate, Thymeleaf, Bootstrap, Liquibase, Sql2o.
+
 
 #### Требования:
 - **Java 17**
